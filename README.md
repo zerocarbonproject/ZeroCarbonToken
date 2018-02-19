@@ -2,7 +2,7 @@
 
 Tackling climate change with blockchain
 
-![Energis Token](energis.svg)
+![Energis Token](energis.png)
 
 [Zero Carbon Project][Energis Link] can work with the crypto-community to make a difference and provide leadership by accelerating the transition to zero carbon emissions. Our vision is to see global carbon emissions reduce to zero in fifteen years.
 
