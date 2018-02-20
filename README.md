@@ -12,7 +12,12 @@ Energy consumers from the crypto-community can participate in our zero carbon ma
 
 ## Contracts
 
-Please see the [contracts/](contracts) directory.
+Please see the contracts directory.
+
+EnergisToken.sol - Token Contract
+Distributor.sol - Used to distribute token rewards to customers
+TransactionFees.sol - Used to split tokens from suppliers to expenses and rewards pool
+MultiSigWallet.sol - Multisignature Wallets used
 
 
 

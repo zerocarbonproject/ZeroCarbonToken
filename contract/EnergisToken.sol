@@ -5,7 +5,7 @@ pragma solidity ^0.4.18;
 //
 // Symbol      : ERG
 // Name        : Energis Token
-// Total supply: 24,000,000.000000000000000000
+// Total supply: 240,000,000.000000000000000000
 // Decimals    : 18
 //
 // Enjoy.
@@ -122,7 +122,7 @@ contract EnergisToken is ERC20Interface, Owned {
         symbol = "NRG";
         name = "Energis Token";
         decimals = 18;
-        _totalSupply = 24000000 * 10**uint(decimals);
+        _totalSupply = 240000000 * 10**uint(decimals);
         balances[owner] = _totalSupply;
         Transfer(address(0), owner, _totalSupply);
     }
