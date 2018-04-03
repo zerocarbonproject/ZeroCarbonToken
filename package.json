@@ -1,0 +1,25 @@
+{
+  "name": "energis-token",
+  "version": "1.0.0",
+  "description": "Energis Token Contracts",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zerocarbonproject/energis-token.git"
+  },
+  "author": "Philip Louw",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zerocarbonproject/energis-token/issues"
+  },
+  "homepage": "https://github.com/zerocarbonproject/energis-token#readme",
+  "dependencies": {
+    "zeppelin-solidity": "^1.8.0"
+  }
+}
