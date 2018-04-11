@@ -1,4 +1,4 @@
-pragma solidity ^0.4.18;
+pragma solidity ^0.4.21;
 
 // File: zeppelin-solidity/contracts/ownership/Ownable.sol
 
@@ -36,7 +36,7 @@ contract Ownable {
    */
   function transferOwnership(address newOwner) public onlyOwner {
     require(newOwner != address(0));
-    OwnershipTransferred(owner, newOwner);
+    emit OwnershipTransferred(owner, newOwner);
     owner = newOwner;
   }
 
@@ -72,7 +72,7 @@ contract Claimable is Ownable {
    * @dev Allows the pendingOwner address to finalize the transfer.
    */
   function claimOwnership() onlyPendingOwner public {
-    OwnershipTransferred(owner, pendingOwner);
+    emit OwnershipTransferred(owner, pendingOwner);
     owner = pendingOwner;
     pendingOwner = address(0);
   }
@@ -172,7 +172,7 @@ contract BasicToken is ERC20Basic {
     // SafeMath.sub will throw if there is not enough balance.
     balances[msg.sender] = balances[msg.sender].sub(_value);
     balances[_to] = balances[_to].add(_value);
-    Transfer(msg.sender, _to, _value);
+    emit Transfer(msg.sender, _to, _value);
     return true;
   }
 
@@ -228,7 +228,7 @@ contract StandardToken is ERC20, BasicToken {
     balances[_from] = balances[_from].sub(_value);
     balances[_to] = balances[_to].add(_value);
     allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);
-    Transfer(_from, _to, _value);
+    emit Transfer(_from, _to, _value);
     return true;
   }
 
@@ -244,7 +244,7 @@ contract StandardToken is ERC20, BasicToken {
    */
   function approve(address _spender, uint256 _value) public returns (bool) {
     allowed[msg.sender][_spender] = _value;
-    Approval(msg.sender, _spender, _value);
+    emit Approval(msg.sender, _spender, _value);
     return true;
   }
 
@@ -270,7 +270,7 @@ contract StandardToken is ERC20, BasicToken {
    */
   function increaseApproval(address _spender, uint _addedValue) public returns (bool) {
     allowed[msg.sender][_spender] = allowed[msg.sender][_spender].add(_addedValue);
-    Approval(msg.sender, _spender, allowed[msg.sender][_spender]);
+    emit Approval(msg.sender, _spender, allowed[msg.sender][_spender]);
     return true;
   }
 
@@ -291,7 +291,7 @@ contract StandardToken is ERC20, BasicToken {
     } else {
       allowed[msg.sender][_spender] = oldValue.sub(_subtractedValue);
     }
-    Approval(msg.sender, _spender, allowed[msg.sender][_spender]);
+    emit Approval(msg.sender, _spender, allowed[msg.sender][_spender]);
     return true;
   }
 
@@ -324,7 +324,7 @@ contract EnergisToken is StandardToken, Claimable {
   function EnergisToken() public {
     totalSupply_ = INITIAL_SUPPLY;
     balances[msg.sender] = INITIAL_SUPPLY;
-    Transfer(0x0, msg.sender, INITIAL_SUPPLY);
+    emit Transfer(0x0, msg.sender, INITIAL_SUPPLY);
   }
 
   /**
