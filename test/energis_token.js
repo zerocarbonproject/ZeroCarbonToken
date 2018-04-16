@@ -1,3 +1,4 @@
+const BigNumber = web3.BigNumber;
 const EnergisToken = artifacts.require("./EnergisToken.sol");
 
 contract('EnergisToken', function(accounts) {
@@ -80,5 +81,29 @@ contract('EnergisToken', function(accounts) {
       });
     });
   });
-  
+
+  describe('Token Burning', function() {
+
+    beforeEach(async function () {
+      this.token = await EnergisToken.new();
+    });
+
+    it('burns the account tokens', async function() {
+      const amountBurn = 100;
+      let tokensAmount = await this.token.balanceOf(accounts[0]);
+      await this.token.burn(amountBurn);
+
+      const newBalance = await this.token.balanceOf(accounts[0]);
+      assert.equal(newBalance, tokensAmount - amountBurn);
+    });
+
+    it('token burns updates the total supply', async function() {
+      const amountBurn = 100;
+      let totalSupply = await this.token.totalSupply();
+      await this.token.burn(amountBurn);
+
+      const totalSupplyAfter = await this.token.totalSupply();
+      assert.isTrue(new BigNumber(totalSupplyAfter).add(amountBurn).eq(new BigNumber(totalSupply)) );
+    });
+  });
 });

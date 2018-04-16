@@ -1,5 +1,6 @@
 pragma solidity ^0.4.18;
 
+import "zeppelin-solidity/contracts/token/ERC20/BurnableToken.sol";
 import "zeppelin-solidity/contracts/token/ERC20/StandardToken.sol";
 import "zeppelin-solidity/contracts/ownership/Claimable.sol";
 
@@ -13,7 +14,7 @@ import "zeppelin-solidity/contracts/ownership/Claimable.sol";
  *
  * (c) Philip Louw / Zero Carbon Project 2018. The MIT Licence.
  */
-contract EnergisToken is StandardToken, Claimable {
+contract EnergisToken is StandardToken, Claimable, BurnableToken {
   using SafeMath for uint256;
 
   string public constant name = "Energis Token"; // solium-disable-line uppercase

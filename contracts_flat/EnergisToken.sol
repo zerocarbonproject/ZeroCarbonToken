@@ -187,6 +187,33 @@ contract BasicToken is ERC20Basic {
 
 }
 
+// File: zeppelin-solidity/contracts/token/ERC20/BurnableToken.sol
+
+/**
+ * @title Burnable Token
+ * @dev Token that can be irreversibly burned (destroyed).
+ */
+contract BurnableToken is BasicToken {
+
+  event Burn(address indexed burner, uint256 value);
+
+  /**
+   * @dev Burns a specific amount of tokens.
+   * @param _value The amount of token to be burned.
+   */
+  function burn(uint256 _value) public {
+    require(_value <= balances[msg.sender]);
+    // no need to require value <= totalSupply, since that would imply the
+    // sender's balance is greater than the totalSupply, which *should* be an assertion failure
+
+    address burner = msg.sender;
+    balances[burner] = balances[burner].sub(_value);
+    totalSupply_ = totalSupply_.sub(_value);
+    emit Burn(burner, _value);
+    emit Transfer(burner, address(0), _value);
+  }
+}
+
 // File: zeppelin-solidity/contracts/token/ERC20/ERC20.sol
 
 /**
@@ -309,7 +336,7 @@ contract StandardToken is ERC20, BasicToken {
  *
  * (c) Philip Louw / Zero Carbon Project 2018. The MIT Licence.
  */
-contract EnergisToken is StandardToken, Claimable {
+contract EnergisToken is StandardToken, Claimable, BurnableToken {
   using SafeMath for uint256;
 
   string public constant name = "Energis Token"; // solium-disable-line uppercase
