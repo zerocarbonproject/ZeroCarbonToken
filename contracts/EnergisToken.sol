@@ -7,7 +7,7 @@ import "zeppelin-solidity/contracts/ownership/Claimable.sol";
 /**
  * @title EnergisToken
  * 
- * Symbol      : ERG
+ * Symbol      : NRG
  * Name        : Energis Token
  * Total supply: 240,000,000.000000000000000000
  * Decimals    : 18
