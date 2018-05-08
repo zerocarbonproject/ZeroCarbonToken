@@ -1,4 +1,4 @@
-pragma solidity ^0.4.18;
+pragma solidity ^0.4.23;
 
 import "zeppelin-solidity/contracts/token/ERC20/BurnableToken.sol";
 import "zeppelin-solidity/contracts/token/ERC20/StandardToken.sol";
@@ -17,7 +17,7 @@ import "zeppelin-solidity/contracts/ownership/Claimable.sol";
 contract EnergisToken is StandardToken, Claimable, BurnableToken {
   using SafeMath for uint256;
 
-  string public constant name = "Energis Token"; // solium-disable-line uppercase
+  string public constant name = "Energis"; // solium-disable-line uppercase
   string public constant symbol = "NRG"; // solium-disable-line uppercase
   uint8 public constant decimals = 18; // solium-disable-line uppercase
 
