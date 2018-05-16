@@ -1,4 +1,6 @@
-pragma solidity ^0.4.11;
+pragma solidity ^0.4.19;
+
+import "zeppelin-solidity/contracts/ownership/Claimable.sol";
 
 /*
 file:   Distributor.sol
@@ -32,40 +34,7 @@ contract ERC20Interface {
     event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
 }
 
-
-// ----------------------------------------------------------------------------
-// Owned contract
-// ----------------------------------------------------------------------------
-contract Owned {
-    address public owner;
-    address public newOwner;
-
-    event OwnershipTransferred(address indexed _from, address indexed _to);
-
-    function Owned() public {
-        owner = msg.sender;
-    }
-
-    modifier onlyOwner {
-        require(msg.sender == owner);
-        _;
-    }
-
-    function transferOwnership(address _newOwner) public onlyOwner {
-        newOwner = _newOwner;
-    }
-
-    function acceptOwnership() public {
-        require(msg.sender == newOwner);
-        OwnershipTransferred(owner, newOwner);
-        owner = newOwner;
-        newOwner = address(0);
-    }
-}
-
-
-contract Distributor is Owned {
-
+contract Distributor is Claimable {
 
     function multisend(address _tokenAddr, address[] dests, uint256[] values) public onlyOwner returns (uint256) {
         uint256 i = 0;
