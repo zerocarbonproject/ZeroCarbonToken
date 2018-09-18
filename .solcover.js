@@ -1,7 +1,6 @@
 module.exports = {
-  port: 7545,
-  copyNodeModules: true,
-  skipFiles: ['Migrations.sol', 'MultiSigWallet.sol'],
-// copyPackages: ['zeppelin-solidity'],
-  norpc: true
+  port: 8555,
+  copyPackages: ['openzeppelin-solidity'],
+  skipFiles: ['Migrations.sol'],
+  norpc: false
 }

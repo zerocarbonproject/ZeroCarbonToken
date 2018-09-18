@@ -1,4 +1,9 @@
+require('babel-register');
+require('babel-polyfill');
+
 module.exports = {
+  // See <http://truffleframework.com/docs/advanced/configuration>
+  // to customize your Truffle configuration!
   networks: {
     mainnet: {
       host: 'localhost',
@@ -12,6 +17,12 @@ module.exports = {
       port: 7545,
       network_id: "*", // Match any network id
       gas: 4500000,
+    },
+    coverage: {
+      host: "localhost",
+      port: 7545,
+      network_id: "*", // Match any network id
+      gas: 45000000,
     },
     ropsten : {
       host: "127.0.0.1",

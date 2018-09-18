@@ -1,13 +1,13 @@
-const EnergisToken = artifacts.require("./EnergisToken.sol");
+const ZeroCarbonCoin = artifacts.require("./ZeroCarbonCoin.sol");
 
 const BigNumber = web3.BigNumber;
 
-contract('EnergisToken', function(accounts) {
+contract('ZeroCarbonCoin', function(accounts) {
 
   describe('Contract Creation Tests', function() {
 
     beforeEach(async function () {
-      this.token = await EnergisToken.new();
+      this.token = await ZeroCarbonCoin.new();
     });
 
     it('should put 240000000000000000000000000 Energis Token in the first account', async function() {
@@ -18,7 +18,7 @@ contract('EnergisToken', function(accounts) {
 
   describe('ERC20 Functions test', function() {
     it('Test transfering money', function() {
-      return EnergisToken.new().then(async function(instance) {
+      return ZeroCarbonCoin.new().then(async function(instance) {
         var acc0Bal = await instance.balanceOf.call(accounts[1]);
         assert.isTrue(new BigNumber('0').comparedTo(acc0Bal) == 0, 'Balance should be zero');
 
@@ -37,7 +37,7 @@ contract('EnergisToken', function(accounts) {
   });
 
   it('Payment should not be accepted', function() {
-    return EnergisToken.new().then(function(instance) {
+    return ZeroCarbonCoin.new().then(function(instance) {
      return instance.send(1000000);
     }).then(function(result) {
       assert.isTrue(false,'Payment should not be accepted');
@@ -51,7 +51,7 @@ contract('EnergisToken', function(accounts) {
   describe('Ownership tests', function() {
 
     it('Contract should have a owner', function() {
-      return EnergisToken.new().then(function(instance) {
+      return ZeroCarbonCoin.new().then(function(instance) {
         return instance.owner();
       }).then(function(owner) {
         assert.isTrue(owner !== 0, 'Owner is set');
@@ -59,7 +59,7 @@ contract('EnergisToken', function(accounts) {
     });
 
     it('Contract creator should be owner', function() {
-      return EnergisToken.new().then(function(instance) {
+      return ZeroCarbonCoin.new().then(function(instance) {
         return instance.owner();
       }).then(function(owner) {
         assert.isTrue(owner == accounts[0], 'Owner is set to creator');
@@ -67,7 +67,7 @@ contract('EnergisToken', function(accounts) {
     });
 
     it('Initial Step in Ownership', function() {
-      return EnergisToken.new().then(async function(instance) {
+      return ZeroCarbonCoin.new().then(async function(instance) {
         await instance.transferOwnership(accounts[1]);
         var currOwner = await instance.owner();
         var currPendingOwner = await instance.pendingOwner();
@@ -77,7 +77,7 @@ contract('EnergisToken', function(accounts) {
     });
 
     it('Claim OwnerShip', function() {
-      return EnergisToken.new().then(async function(instance) {
+      return ZeroCarbonCoin.new().then(async function(instance) {
         await instance.transferOwnership(accounts[1]);
         await instance.claimOwnership({ from: accounts[1]});
         var currOwner = await instance.owner();
@@ -90,7 +90,7 @@ contract('EnergisToken', function(accounts) {
   describe('Token Burning', function() {
 
     beforeEach(async function () {
-      this.token = await EnergisToken.new();
+      this.token = await ZeroCarbonCoin.new();
     });
 
     it('burns the account tokens', async function() {
@@ -115,8 +115,8 @@ contract('EnergisToken', function(accounts) {
 
   describe('transfer Any ERC20 Token', function() {
     beforeEach(async function () {
-      this.tokenA = await EnergisToken.new({from: accounts[0]});
-      this.tokenB = await EnergisToken.new({from: accounts[1]});
+      this.tokenA = await ZeroCarbonCoin.new({from: accounts[0]});
+      this.tokenB = await ZeroCarbonCoin.new({from: accounts[1]});
     });
 
     it('Claim acidental send tokens', async function() {
