@@ -5,19 +5,19 @@ import "openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol";
 import "openzeppelin-solidity/contracts/ownership/Claimable.sol";
 
 /**
- * @title ZeroCarbonCoin
+ * @title ZeroCarbon
  * 
  * Symbol      : ZCC
- * Name        : Zero Carbon Coin
+ * Name        : Zero Carbon
  * Total supply: 240,000,000.000000000000000000
  * Decimals    : 18
  *
  * (c) Philip Louw / Zero Carbon Project 2018. The MIT Licence.
  */
-contract ZeroCarbonCoin is StandardToken, Claimable, BurnableToken {
+contract ZeroCarbon is StandardToken, Claimable, BurnableToken {
     using SafeMath for uint256;
 
-    string public constant name = "ZeroCarbonCoin"; // solium-disable-line uppercase
+    string public constant name = "ZeroCarbon"; // solium-disable-line uppercase
     string public constant symbol = "ZCC"; // solium-disable-line uppercase
     uint8 public constant decimals = 18; // solium-disable-line uppercase
 

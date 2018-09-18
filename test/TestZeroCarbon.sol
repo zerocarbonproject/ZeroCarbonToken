@@ -2,9 +2,9 @@ pragma solidity ^0.4.18;
 
 import "truffle/Assert.sol";
 import "truffle/DeployedAddresses.sol";
-import "../contracts/ZeroCarbonCoin.sol";
+import "../contracts/ZeroCarbon.sol";
 
-contract TestZeroCarbonCoin {
+contract TestZeroCarbon {
 
 
     constructor () public {
@@ -12,7 +12,7 @@ contract TestZeroCarbonCoin {
     }
 
     function testInitialBalanceUsingDeployedContract() public {
-        ZeroCarbonCoin meta = ZeroCarbonCoin(DeployedAddresses.ZeroCarbonCoin());
+        ZeroCarbon meta = ZeroCarbon(DeployedAddresses.ZeroCarbon());
 
         uint expected = 240000000000000000000000000;
 

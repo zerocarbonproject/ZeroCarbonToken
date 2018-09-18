@@ -1,4 +1,4 @@
-# ZeroCarbonCoin
+# ZeroCarbon Token
 
 Tackling climate change with blockchain
 
@@ -12,7 +12,7 @@ Energy consumers from the crypto-community can participate in our zero carbon ma
 
 ## Contract
 
-ZeroCarbonCoin is an ERC20 token used by the ZeroCarbonProject.
+ZeroCarbon is an ERC20 token used by the ZeroCarbonProject.
 
 Following properties:
 
@@ -21,6 +21,6 @@ Following properties:
 * Tokens can be burned
 * Supports 18 decimal places
 * Symbol : ZCC
-* Name : ZeroCarbonCoin
+* Name : ZeroCarbon
 
 [ZeroCarbonProject Link]: https://www.zerocarbonproject.com/
