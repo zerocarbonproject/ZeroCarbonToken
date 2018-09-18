@@ -1,7 +1,7 @@
 {
-  "name": "zero-carbon-coin",
+  "name": "zero-carbon-token",
   "version": "1.0.0",
-  "description": "ZeroCarbonCoin Token Contract",
+  "description": "ZeroCarbon Token Contract",
   "main": "truffle-config.js",
   "directories": {
     "test": "test"
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zerocarbonproject/ZeroCarbonCoin.git"
+    "url": "git+https://github.com/zerocarbonproject/ZeroCarbonToken.git"
   },
   "author": "Philip Louw",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zerocarbonproject/ZeroCarbonCoin/issues"
+    "url": "https://github.com/zerocarbonproject/ZeroCarbonToken/issues"
   },
-  "homepage": "https://github.com/zerocarbonproject/ZeroCarbonCoin#readme",
+  "homepage": "https://github.com/zerocarbonproject/ZeroCarbonToken#readme",
   "dependencies": {
     "openzeppelin-solidity": "^1.12.0"
   },
